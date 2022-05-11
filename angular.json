@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ngx-let": {
+      "projectType": "library",
+      "root": "projects/ngx-let",
+      "sourceRoot": "projects/ngx-let/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-let/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-let/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-let/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-let/src/test.ts",
+            "tsConfig": "projects/ngx-let/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-let/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-let"
 }
